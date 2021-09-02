@@ -9,7 +9,6 @@ __pycache__/
 slack_id.txt
 
 
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
