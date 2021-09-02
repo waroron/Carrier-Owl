@@ -1,11 +1,19 @@
-# slack id
-slack_id: 'your webhook url'
-
 # arxivの学問領域の指定
-subject: 'cs'
+subject: 'cat:cs.CL'
 
 # 検索キーワード
 keywords:
-        kaggle: 3
-        resnet: 3
-        anomaly detection: 1
+        data-to-text: 5
+        Data-to-Text: 5
+        table-to-text: 5
+        Table-to-Text: 5
+        natural language generation: 3
+        advertisement: 1
+        advertising: 1
+        ad text: 1
+        search engine advertising: 1
+        nested named entity recognition: 1
+        
+
+# 通知の閾値
+score_threshold: 0
