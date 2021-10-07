@@ -13,7 +13,8 @@ keywords:
         ad text: 1
         search engine advertising: 1
         nested named entity recognition: 1
-        
+        document understanding: 3
+        landing page: 1
 
 # 通知の閾値
 score_threshold: 0
