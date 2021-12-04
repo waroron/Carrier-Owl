@@ -15,6 +15,9 @@ keywords:
         nested named entity recognition: 1
         document understanding: 3
         landing page: 1
+        mixture of experts: 2
+        multiple choice learning: 2        
+        multi choice learning: 2        
 
 # 通知の閾値
 score_threshold: 0
