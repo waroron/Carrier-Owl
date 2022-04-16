@@ -12,8 +12,11 @@ keywords:
         advertising: 1
         ad text: 1
         search engine advertising: 1
-        nested named entity recognition: 1
-        document understanding: 3
+        document understanding: 2
+        hallucination: 3
+        faithfulness: 3
+        factuality: 3
+        factual: 3
         landing page: 1
         mixture of experts: 2
         multiple choice learning: 2        
