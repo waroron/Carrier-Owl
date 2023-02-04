@@ -3,10 +3,10 @@ subject: 'cat:cs.CL'
 
 # 検索キーワード
 keywords:
-        data-to-text: 5
-        Data-to-Text: 5
-        table-to-text: 5
-        Table-to-Text: 5
+        data-to-text: 1
+        Data-to-Text: 1
+        table-to-text: 1
+        Table-to-Text: 1
         natural language generation: 3
         advertisement: 1
         advertising: 1
@@ -21,7 +21,9 @@ keywords:
         landing page: 1
         mixture of experts: 2
         multiple choice learning: 2        
-        multi choice learning: 2        
+        multi choice learning: 2       
+        summarization: 4
+        query-focused: 4
 
 # 通知の閾値
 score_threshold: 0
