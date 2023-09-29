@@ -1,7 +1,9 @@
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 import os
 import time
 import yaml
@@ -50,12 +52,13 @@ def search_keyword(
     options.add_argument('--headless')
 
     # ブラウザーを起動
-    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
+    # driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
+    driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
     
     for article in articles:
-        url = article['arxiv_url']
-        title = article['title']
-        abstract = article['summary']
+        url = article
+        title = article.title
+        abstract = article.summary
         score, hit_keywords = calc_score(abstract, keywords)
         if (score != 0) and (score >= score_threshold):
             title_trans = get_translated_text('ja', 'en', title, driver)
@@ -145,7 +148,8 @@ def get_translated_text(from_lang: str, to_lang: str, from_text: str, driver) ->
 
 def get_text_from_driver(driver) -> str:
     try:
-        elem = driver.find_element_by_class_name('lmt__translations_as_text__text_btn')
+        # elem = driver.find_element_by_class_name('lmt__translations_as_text__text_btn')
+        elem = driver.find_element(By.CLASS_NAME, 'lmt__translations_as_text__text_btn')
     except NoSuchElementException as e:
         return None
     text = elem.get_attribute('innerHTML')
@@ -163,7 +167,7 @@ def get_config() -> dict:
     file_dir = os.path.dirname(file_abs_path)
     config_path = f'{file_dir}/../config.yaml'
     with open(config_path, 'r') as yml:
-        config = yaml.load(yml)
+        config = yaml.load(yml, Loader=yaml.Loader)
     return config
 
 
@@ -185,16 +189,14 @@ def main():
     arxiv_query = f'({subject}) AND ' \
                   f'submittedDate:' \
                   f'[{day_before_yesterday_str}000000 TO {day_before_yesterday_str}235959]'
-    articles = arxiv.query(query=arxiv_query,
+    articles = arxiv.Search(query=arxiv_query,
                            max_results=1000,
-                           sort_by='submittedDate',
-                           iterative=False)
+                           sort_by=arxiv.SortCriterion.SubmittedDate).results()
     results = search_keyword(articles, keywords, score_threshold)
 
     slack_id = os.getenv("SLACK_ID") or args.slack_id
     line_token = os.getenv("LINE_TOKEN") or args.line_token
     notify(results, slack_id, line_token)
-
 
 if __name__ == "__main__":
     main()
