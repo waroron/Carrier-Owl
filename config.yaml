@@ -3,27 +3,37 @@ subject: 'cat:cs.CL'
 
 # 検索キーワード
 keywords:
+        natural language generation: 3
+        advertisement: 3
+        advertising: 3
+        ad text: 4
+        search engine advertising: 3
+        document understanding: 2
+        landing page: 1
+        summarization: 4
+        query-focused: 4
+        purchase funnel: 3
+        buying funnel: 3
+        marketing funnel: 3
+        search intent: 3
+        intent classification: 3
+        intent: 1
+        product title: 2
+        query expansion: 1
+        clickbait: 1
+        survey: 1
         data-to-text: 1
         Data-to-Text: 1
         table-to-text: 1
         Table-to-Text: 1
-        natural language generation: 3
-        advertisement: 1
-        advertising: 1
-        ad text: 1
-        search engine advertising: 1
-        document understanding: 2
         hallucination: 3
         hallucinated: 3
         faithfulness: 3
         factuality: 3
         factual: 3
-        landing page: 1
-        mixture of experts: 2
-        multiple choice learning: 2        
-        multi choice learning: 2       
-        summarization: 4
-        query-focused: 4
+        # mixture of experts: 2
+        # multiple choice learning: 2        
+        # multi choice learning: 2       
 
 # 通知の閾値
 score_threshold: 0
