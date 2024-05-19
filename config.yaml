@@ -15,6 +15,10 @@ keywords:
         perturbation: 1
         adversarial perturbation: 4
         image generation: 1
+        image: 1
+        sound: 1
+        audio: 1
+        computer: 1
 # mixture of experts: 2
 # multiple choice learning: 2        
 # multi choice learning: 2       
